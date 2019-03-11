@@ -31,16 +31,20 @@ public class Ejercicio1 {
         //Declaramos de la siguiente forma: [Tipo de dato] [nombre variable]
         int edad = objetoEntrada.nextInt();
         
-        /* Paso 4: Efectuamos la operación de cómputo
-         utilizando la fórmula del ejercicio. Para
-         esto declaramos una variable que almacene
-         el peso ideal */
-        int pesoIdeal = edad * 2 + 8;
+        //Evaluamos si la edad es correcta ( menor a 10)
+        //Utilizamos una estructura de decisión doble
+        if(edad > 0 && edad < 10){
+            /* Paso 4: Efectuamos la operación de cómputo
+             utilizando la fórmula del ejercicio. Para
+             esto declaramos una variable que almacene
+             el peso ideal */
+            int pesoIdeal = edad * 2 + 8;
+            /* Paso 5: Mostramos el resultado*/
+            System.out.println("El peso ideal es "+ pesoIdeal);
         
-        /* Paso 5: Mostramos el resultado*/
-        System.out.println("El peso ideal es "+ pesoIdeal);
-        
-        
+        }else{
+            System.out.println("Edad no válida para calcular.");
+        }
         
     }
     
