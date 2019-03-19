@@ -21,14 +21,14 @@ public class Ejercicio5 {
     public static void main(String[] args) {
         //Declaramos variables
         int numero;
-        int suma = 0;
-        int contadorPar = 0;
-        int contadorImpar =0;
+        int suma                = 0;
+        int contadorPar         = 0;
+        int contadorImpar       = 0;
         
         //Creamos objeto, solicitamos dato e capturamos.
-        Scanner objetoEntrada = new Scanner(System.in);
+        Scanner objetoEntrada   = new Scanner(System.in);
         System.out.print("Ingrese número :");
-        numero = objetoEntrada.nextInt();
+        numero                  = objetoEntrada.nextInt();
         
         //Efectuamos la iteración con while
         while(numero > 0){
@@ -42,9 +42,9 @@ public class Ejercicio5 {
                     contadorImpar++;
                 }
             //Capturamos el valor siguiente
-            Scanner objetoEntrada2 = new Scanner(System.in);
+            Scanner objetoEntrada2  = new Scanner(System.in);
             System.out.print("Ingrese número :");
-            numero = objetoEntrada2.nextInt();
+            numero                  = objetoEntrada2.nextInt();
         }
         //Mostramos los resultados
         System.out.println("Suma              :"+ suma);
