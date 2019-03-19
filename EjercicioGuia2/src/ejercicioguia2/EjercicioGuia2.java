@@ -18,23 +18,30 @@ public class EjercicioGuia2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        float nota,media,masBaja;
+        float nota,media,masBaja,masAlta;
         int cantidad = 1;
         media=0;
         masBaja=8;
+        masAlta=0;
         Scanner entrada = new Scanner(System.in);
         while(cantidad <=3){
             System.out.println("Analizando al alumno "+cantidad);
             System.out.println("Ingrese calificación : ");
             nota = entrada.nextFloat();
+            //Determinamos si la nota es la más baja
             if(masBaja > nota){
                 masBaja = nota;
+            }
+            //Determinamos si la nota es la más alta
+            if(masAlta < nota){
+                masAlta=nota;
             }
             media=media+nota;
             cantidad++;
         }
         media=media/3;
         System.out.println("La nota mas baja es "+ masBaja);
+        System.out.println("La nota mas alta es "+ masAlta);
         System.out.println("La media es "+ media);
         
     }
