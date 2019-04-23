@@ -27,40 +27,13 @@ public class JavaPOO1 {
      */
     
     public static void main(String[] args) {
-         //Declaramos variable para almacenar temporalmente los datos capturados
-        String marca, modelo,patente;
-        int anho;
-        // Capturamos los valores requeridos para el procesamiento
-        Scanner entrada = new Scanner(System.in);
-        //Solicitamos al usuario incorporar la marca
-        System.out.print("Ingrese marca             : ");
-        marca = entrada.nextLine();
-        //Solicitamos al usuario incorporar el modelo
-        System.out.print("Ingrese modelo            : ");
-        modelo = entrada.nextLine();
-        //Solicitamos al usuario incorporar la patente
-        System.out.print("Ingrese patente           : ");
-        patente = entrada.nextLine();
-        //Solicitamos al usuario incorporar el año del vehículo
-        System.out.print("Ingrese año del vehiculo  : ");
-        anho = entrada.nextInt();
         
-        //Creamos un objeto de la clase Vehiculo y Seguro
+         //Creamos un objeto de la clase Vehiculo y Seguro
          Seguro seguro = new Seguro();
          Vehiculo vehiculo = new Vehiculo();
-        //Establecemos propiedades para el seguro
-        seguro.setNombre("Seguro de daños a terceros");
-        seguro.setValorUf(27500);
-       
-        
-       
-        vehiculo.setMarca(marca);
-        vehiculo.setModelo(modelo);
-        vehiculo.setPatente(patente);
-        vehiculo.setAnho(anho);
-        
      
-
+        //Solicitamos los datos y asignamos a variables de objeto
+        solicitarYAsignarValores(vehiculo,seguro);
         //Calcular valores
         calcularValores(vehiculo,seguro);
         //Invocamos el método mostrarResultados enviándo los datos que necesita (objetos)
@@ -90,6 +63,38 @@ public class JavaPOO1 {
         }
         
         
+    }
+
+    private static void solicitarYAsignarValores(Vehiculo vehiculo, Seguro seguro) {
+     //Declaramos variable para almacenar temporalmente los datos capturados
+        String marca, modelo,patente;
+        int anho;
+        // Capturamos los valores requeridos para el procesamiento
+        Scanner entrada = new Scanner(System.in);
+        //Solicitamos al usuario incorporar la marca
+        System.out.print("Ingrese marca             : ");
+        marca = entrada.nextLine();
+        //Solicitamos al usuario incorporar el modelo
+        System.out.print("Ingrese modelo            : ");
+        modelo = entrada.nextLine();
+        //Solicitamos al usuario incorporar la patente
+        System.out.print("Ingrese patente           : ");
+        patente = entrada.nextLine();
+        //Solicitamos al usuario incorporar el año del vehículo
+        System.out.print("Ingrese año del vehiculo  : ");
+        anho = entrada.nextInt();
+        
+
+        //Establecemos propiedades para el seguro
+        seguro.setNombre("Seguro de daños a terceros");
+        seguro.setValorUf(27500);
+       
+        
+       
+        vehiculo.setMarca(marca);
+        vehiculo.setModelo(modelo);
+        vehiculo.setPatente(patente);
+        vehiculo.setAnho(anho);    
     }
 
 
