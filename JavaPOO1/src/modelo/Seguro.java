@@ -48,7 +48,12 @@ public class Seguro {
         return asegurable;
     }
     public void calcularValorSeguro(int antiguedad){
+        if(antiguedad==0){
+        this.valorSeguro = (1 * this.valorUf)/10;
+        }else{
         this.valorSeguro = (antiguedad * this.valorUf)/10;
+            
+        }
     
     }
     

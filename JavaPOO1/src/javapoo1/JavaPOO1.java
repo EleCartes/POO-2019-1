@@ -27,8 +27,7 @@ public class JavaPOO1 {
      */
     
     public static void main(String[] args) {
-        
-        //Declaramos variable para almacenar temporalmente los datos capturados
+         //Declaramos variable para almacenar temporalmente los datos capturados
         String marca, modelo,patente;
         int anho;
         // Capturamos los valores requeridos para el procesamiento
@@ -47,26 +46,32 @@ public class JavaPOO1 {
         anho = entrada.nextInt();
         
         //Creamos un objeto de la clase Vehiculo y Seguro
-        Seguro seguro = new Seguro();
+         Seguro seguro = new Seguro();
+         Vehiculo vehiculo = new Vehiculo();
         //Establecemos propiedades para el seguro
         seguro.setNombre("Seguro de daños a terceros");
         seguro.setValorUf(27500);
        
         
-        Vehiculo vehiculo = new Vehiculo();
+       
         vehiculo.setMarca(marca);
         vehiculo.setModelo(modelo);
         vehiculo.setPatente(patente);
         vehiculo.setAnho(anho);
+        
+     
 
+        //Calcular valores
         calcularValores(vehiculo,seguro);
         //Invocamos el método mostrarResultados enviándo los datos que necesita (objetos)
         mostrarResultados(vehiculo,seguro);
-        
+    
+       
         
         
  
     }
+  
     public static void calcularValores(Vehiculo vehiculo,Seguro seguro){
                 //Invocamos el método que calcula la antiguedad
         vehiculo.calcularAntiguedad();
@@ -86,5 +91,7 @@ public class JavaPOO1 {
         
         
     }
+
+
     
 }
