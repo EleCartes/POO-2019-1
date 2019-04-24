@@ -27,22 +27,24 @@ public class JavaPOO1 {
      */
     
     public static void main(String[] args) {
-        
+        String respuesta="";
          //Creamos un objeto de la clase Vehiculo y Seguro
          Seguro seguro = new Seguro();
          Vehiculo vehiculo = new Vehiculo();
-     
+       
+     do{
         //Solicitamos los datos y asignamos a variables de objeto
         solicitarYAsignarValores(vehiculo,seguro);
+        
         //Calcular valores
         calcularValores(vehiculo,seguro);
+       
         //Invocamos el método mostrarResultados enviándo los datos que necesita (objetos)
         mostrarResultados(vehiculo,seguro);
-    
        
         
-        
- 
+        respuesta = solicitarContinuar();
+     }while(respuesta.equals("s"));
     }
   
     public static void calcularValores(Vehiculo vehiculo,Seguro seguro){
@@ -64,7 +66,6 @@ public class JavaPOO1 {
         
         
     }
-
     private static void solicitarYAsignarValores(Vehiculo vehiculo, Seguro seguro) {
      //Declaramos variable para almacenar temporalmente los datos capturados
         String marca, modelo,patente;
@@ -95,6 +96,14 @@ public class JavaPOO1 {
         vehiculo.setModelo(modelo);
         vehiculo.setPatente(patente);
         vehiculo.setAnho(anho);    
+    }
+
+    private static String solicitarContinuar() {
+    String respuesta;
+    Scanner entrada = new Scanner(System.in);
+    System.out.println("Desea continuar? s/n");
+    respuesta = entrada.nextLine();
+    return respuesta;
     }
 
 
