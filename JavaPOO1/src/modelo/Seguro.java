@@ -8,6 +8,10 @@ package modelo;
 /**
  *
  * @author fredy
+ * TODO:
+ * - Validar que el año del vehiculo no sea superior al año actual
+ * - Validar que ingrese todos los datos para poder ejecutar 
+ * las operaciones
  */
 public class Seguro {
     private String nombre;
