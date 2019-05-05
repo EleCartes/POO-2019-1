@@ -18,17 +18,22 @@ public class RemuneracionesPOO {
     /**
      * @param args the command line arguments
      */
+  
     public static void main(String[] args) {
+          //Variable para almacenar la respuesta.
+         String respuesta = null;
         //Creamos objetos necesarios
         Empleado empleado = new Empleado();
         Remuneracion remuneracion = new Remuneracion();
-        
+        do{
         //Invocamos método para capturar datos
         capturarYAsignarValores(empleado,remuneracion);
         //Calculamos los datos de la remuneración. Esto lo delegamos a la clase Remuneración
         remuneracion.calcularRemuneracion();
         //Mostramos resultados enviando los objetos que tienen todos los datos
         mostrarResultados(empleado,remuneracion);
+        respuesta = consultaContinuar();
+        }while(respuesta.equals("s"));
         
     }
 
@@ -84,6 +89,14 @@ public class RemuneracionesPOO {
         System.out.println("RETENCION 10%           :"+remuneracion.getRetencion());
         System.out.println("--   PAGO    --");
         System.out.println("TOTAL A PAGO            :"+remuneracion.getPagoTotal());
+    }
+
+    private static String consultaContinuar() {
+        String respuesta;
+        System.out.println("¿Desea calcular  datos de otro empleado? Digite s para repetir o cualquier otra para terminar.");
+        Scanner entrada = new Scanner(System.in);
+        respuesta = entrada.nextLine();
+        return respuesta;
     }
 
     
