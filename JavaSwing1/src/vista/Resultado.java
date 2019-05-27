@@ -5,6 +5,8 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+import modelo.Seguro;
 import modelo.Vehiculo;
 
 /**
@@ -28,6 +30,25 @@ public class Resultado extends javax.swing.JFrame {
         lbl_modelo.setText(vehiculo.getModelo());
         lbl_patente.setText(vehiculo.getPatente());
         lbl_anho.setText(String.valueOf(vehiculo.getAnho()));
+        //Invocamos el método calcular antiguedad
+        vehiculo.calcularAntiguedad();
+        lbl_antiguedad.setText(String.valueOf(vehiculo.getAntiguedad()));
+        //Invocamos el método calcular valor seguro
+        //Creamos un objeto de la clase Seguro
+        Seguro seguro = new Seguro();
+        seguro.calcularValorSeguro(vehiculo.getAntiguedad());
+        //Determinamos la asegurabilidad
+        seguro.determinarAsegurabilidad(vehiculo.getAntiguedad());
+        if(seguro.isAsegurable()){
+        // Desplegamos en la interfaz el valor del seguro
+        lbl_valor_seguro.setText(String.valueOf(seguro.getValorSeguro()));
+        }else{
+
+        lbl_texto_valor_seguro.setText("Aviso");
+        lbl_valor_seguro.setText("No es posible asegurar debido a antiguedad.");
+        }
+        
+        
         
     }
 
@@ -52,7 +73,7 @@ public class Resultado extends javax.swing.JFrame {
         lbl_anho = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lbl_antiguedad = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lbl_texto_valor_seguro = new javax.swing.JLabel();
         lbl_valor_seguro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,7 +100,7 @@ public class Resultado extends javax.swing.JFrame {
 
         lbl_antiguedad.setText("jLabel7");
 
-        jLabel7.setText("Valor Seguro");
+        lbl_texto_valor_seguro.setText("Valor Seguro");
 
         lbl_valor_seguro.setText("jLabel8");
 
@@ -112,7 +133,7 @@ public class Resultado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                            .addComponent(lbl_texto_valor_seguro))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_valor_seguro)
@@ -149,7 +170,7 @@ public class Resultado extends javax.swing.JFrame {
                     .addComponent(lbl_antiguedad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(lbl_texto_valor_seguro)
                     .addComponent(lbl_valor_seguro))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
@@ -199,13 +220,13 @@ public class Resultado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lbl_anho;
     private javax.swing.JLabel lbl_antiguedad;
     private javax.swing.JLabel lbl_marca;
     private javax.swing.JLabel lbl_modelo;
     private javax.swing.JLabel lbl_patente;
+    private javax.swing.JLabel lbl_texto_valor_seguro;
     private javax.swing.JLabel lbl_valor_seguro;
     // End of variables declaration//GEN-END:variables
 }

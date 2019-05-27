@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.util.Calendar;
+
 /**
  *
  * @author fredy
@@ -55,6 +57,17 @@ public class Vehiculo {
 
     public void setAntiguedad(int antiguedad) {
         this.antiguedad = antiguedad;
+    }
+    //Calculamos la antiguedad
+    public void calcularAntiguedad(){
+       
+        //Al año actual le restamos la antiguedad
+        int antiguedad = 2019 - this.anho;
+        if(antiguedad==0){
+            antiguedad = 1;
+        }
+        this.antiguedad = antiguedad;
+                
     }
 
     

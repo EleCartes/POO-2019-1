@@ -11,7 +11,7 @@ package modelo;
  */
 public class Seguro {
     private double valorSeguro;
-    private double valorUF;
+    private double valorUF = 27500;
     private boolean asegurable;
 
     public double getValorSeguro() {
@@ -36,6 +36,20 @@ public class Seguro {
 
     public void setAsegurable(boolean asegurable) {
         this.asegurable = asegurable;
+    }
+    public void calcularValorSeguro(int antiguedad){
+        //Recibimos la antiguedad del vehículo
+        //Calculamos el valor del seguro
+        //Es necesario contar además con el valor de la UF
+        
+        this.valorSeguro = (antiguedad * this.valorUF)/10;
+        
+    }
+    public void determinarAsegurabilidad(int antiguedad){
+        this.asegurable = false;
+        if(antiguedad <=10){
+            this.asegurable = true;
+        }
     }
     
     

@@ -5,6 +5,8 @@
  */
 package vista;
 
+
+import javax.swing.JOptionPane;
 import modelo.Vehiculo;
 
 /**
@@ -119,6 +121,11 @@ public class IngresoValores extends javax.swing.JFrame {
     private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
         /*Al hacer clic en el botón creamos un objeto de la clase Vehiculo
         y le asignamos a sus propiedades los valores ingresados */
+        
+        try {
+        boolean entradaValida = validarEntradas();
+        
+        if(entradaValida){
         Vehiculo vehiculo = new Vehiculo();
         //Obtenemos los datos ingresados por el usuario
         String marca    = txt_marca.getText();
@@ -132,12 +139,21 @@ public class IngresoValores extends javax.swing.JFrame {
         vehiculo.setPatente(patente);
         
         //Desplegamos el JFrame de resultado
-        Resultado resultado = new Resultado();
+        Resultado resultado = new Resultado(vehiculo);
         resultado.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Existen campos vacíos");
+        }
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Ingrese un año válido.");
+        }
         
         
         
-    }//GEN-LAST:event_btn_consultarActionPerformed
+    }
+    
+
+//GEN-LAST:event_btn_consultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,4 +203,13 @@ public class IngresoValores extends javax.swing.JFrame {
     private javax.swing.JTextField txt_modelo;
     private javax.swing.JTextField txt_patente;
     // End of variables declaration//GEN-END:variables
+
+    private boolean validarEntradas() {
+    boolean entradasValidas=true;
+        if(txt_marca.getText().isEmpty()){
+            entradasValidas = false;
+        
+    }  
+    return entradasValidas;
+    }
 }
